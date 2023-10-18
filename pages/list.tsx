@@ -1,18 +1,11 @@
-'use client'
+import { useContractRead, useNetwork } from 'wagmi';
+import { useState } from 'react';
 
-import { configureChains, useContractRead, useWalletClient } from 'wagmi';
-import { publicProvider } from '@wagmi/core/providers/public';
-import { scrollSepolia, mantleTestnet } from '@wagmi/core/chains';
-import { useEffect, useState } from 'react';
-
-const { chains, publicClient } = configureChains(
-  [scrollSepolia, mantleTestnet],
-  [publicProvider()]
-)
 function List() {
+  const { chain } = useNetwork();
   const [siteList, setSiteList] = useState(null);
 
-  const {data, isError, isLoading} = useContractRead({
+  useContractRead({
     address: '0xcE5a0B27f89FdaB2B1f1809A3560fF82C582f596',
     abi: [{
       "inputs": [],
@@ -36,6 +29,7 @@ function List() {
 
   return (
     <div>
+      <p suppressHydrationWarning>{chain && chain.name}</p>
       <p>{siteList}</p>
     </div>
   )
