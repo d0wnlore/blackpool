@@ -17,10 +17,12 @@
     "wagmi": "~1.4.2"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "@types/node": "^18.16.12",
     "@types/react": "^18.2.21",
     "eslint": "^8.15.0",
     "eslint-config-next": "^13.4.19",
+    "hardhat": "^2.18.1",
     "typescript": "^5.0.4"
   }
 }

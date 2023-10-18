@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-contract SiteList {
+contract Blackpool {
     address public owner;
 
     struct Site {
