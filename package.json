@@ -20,6 +20,7 @@
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "@types/node": "^18.16.12",
     "@types/react": "^18.2.21",
+    "dotenv": "^16.3.1",
     "eslint": "^8.15.0",
     "eslint-config-next": "^13.4.19",
     "hardhat": "^2.18.1",

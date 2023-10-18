@@ -7,17 +7,15 @@
 const hre = require("hardhat");
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
+  const [deployer] = await hre.ethers.getSigners();
 
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const contract = await ethers.deployContract("Blackpool", {
+  const contract = await hre.ethers.deployContract("Blackpool", {
     // gasLimit: "0x1000000",
   });
 
-  await lock.waitForDeployment();
-
-  console.log("Token address:", token.getAddress());
+  console.log("Token address:", await contract.getAddress());
 }
 
 // We recommend this pattern to be able to use async/await everywhere
