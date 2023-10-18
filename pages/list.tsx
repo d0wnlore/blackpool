@@ -13,27 +13,29 @@ function List() {
   const { chain } = getNetwork();
   const [siteList, setSiteList] = useState(null);
 
-  useContractRead({
-    address: CONTRACT_ADDRESSES[chain.id] as `0x${string}`,
-    abi: [{
-      "inputs": [],
-      "name": "getAllSites",
-      "outputs": [
-        {
-          "internalType": "string[]",
-          "name": "",
-          "type": "string[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }],
-    functionName: 'getAllSites',
-    onSettled(data, error) {
-      setSiteList(data);
-      console.log('Settled', { data, error});
-    }
-  });
+  { chain &&
+    useContractRead({
+      address: CONTRACT_ADDRESSES[chain.id] as `0x${string}`,
+      abi: [{
+        "inputs": [],
+        "name": "getAllSites",
+        "outputs": [
+          {
+            "internalType": "string[]",
+            "name": "",
+            "type": "string[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }],
+      functionName: 'getAllSites',
+      onSettled(data, error) {
+        setSiteList(data);
+        console.log('Settled', { data, error});
+      }
+    })
+  }
 
   return (
     <div>
