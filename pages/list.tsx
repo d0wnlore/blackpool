@@ -2,7 +2,7 @@ import { useContractRead } from 'wagmi';
 import { useState } from 'react';
 
 const CONTRACT_ADDRESSES = {
-  534351: '0x933d213bC4F704Aca1c1fade4a961Ef2fa22D7F7',
+  534351: '0x57B1305227FD3c3c7DE018231Cbb323f3B1d6e4f',
   5001: '0xD30e9367171CB05aC5E00ae195A015225F2848e1'
 }
 

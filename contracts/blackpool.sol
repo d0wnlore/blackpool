@@ -14,16 +14,18 @@ contract Blackpool {
     }
 
     mapping(address => Site[]) public addrSites;
-    Site[] public allSites;
+    mapping(uint => Site) public allSites;
+    uint public totalSitesCount;
 
     constructor() {
         owner = msg.sender;
     }
 
     function addSite(string calldata url) public {
-        Site memory newSite = Site(url, true, msg.sender);
-        addrSites[msg.sender].push(newSite);
-        allSites.push(newSite);
+        // Directly pushing the new site to the arrays
+        addrSites[msg.sender].push(Site(url, true, msg.sender));
+        allSites[totalSitesCount] = Site(url, true, msg.sender);
+        totalSitesCount++;
         emit SiteAdded(url, msg.sender);
     }
 
@@ -37,30 +39,24 @@ contract Blackpool {
     }
 
     function getAllSites() public view returns (string[] memory) {
-        uint totalSitesCount = allSites.length;
-
         string[] memory allUrls = new string[](totalSitesCount);
-
         for (uint i = 0; i < totalSitesCount; i++) {
             allUrls[i] = allSites[i].url;
         }
-
         return allUrls;
     }
 
     function getAllAddrSites(address addr) public view returns (string[] memory) {
         uint len = addrSites[addr].length;
         string[] memory urls = new string[](len);
-
         for (uint i = 0; i < len; i++) {
             urls[i] = addrSites[addr][i].url;
         }
-
         return urls;
     }
 
     function tipSiteOwner(uint siteIndex) public payable {
-        require(siteIndex < allSites.length, "Site does not exist");
+        require(siteIndex < totalSitesCount, "Site does not exist");
         address payable siteOwner = payable(allSites[siteIndex].siteOwner);
         siteOwner.transfer(msg.value);
         emit TipReceived(siteIndex, msg.value);
