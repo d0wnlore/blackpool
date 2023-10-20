@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 
 const CONTRACT_ADDRESSES = {
-  534351: '0xcE5a0B27f89FdaB2B1f1809A3560fF82C582f596',
+  534351: '0x933d213bC4F704Aca1c1fade4a961Ef2fa22D7F7',
   5001: '0xD30e9367171CB05aC5E00ae195A015225F2848e1'
 }
 
