@@ -7,7 +7,7 @@ const CONTRACT_ADDRESSES = {
 }
 
 function List({chainId}) {
-  const [siteList, setSiteList] = useState(null);
+  const [siteList, setSiteList] = useState([]);
 
   useContractRead({
     address: CONTRACT_ADDRESSES[chainId] as `0x${string}`,
@@ -34,7 +34,11 @@ function List({chainId}) {
   return (
     <div>
       <p>{chainId}</p>
-      <p>{siteList}</p>
+      <ul>
+        {siteList.map((site, index) => (
+          <li key={index}>{site}</li>
+        ))}
+      </ul>
     </div>
   )
 }
