@@ -1,10 +1,21 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import dynamic from 'next/dynamic';
 import type { NextPage } from 'next';
-import List from './list';
+const List = dynamic(
+  () => import('./list'),
+  { ssr: false }
+);
+const Add = dynamic(
+  () => import('./add'),
+  { ssr: false }
+);
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { useNetwork } from 'wagmi';
 
 const Home: NextPage = () => {
+  const { chain } = useNetwork();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -23,7 +34,10 @@ const Home: NextPage = () => {
           Blackpool
         </h1>
 
-        <List />
+        {chain && <>
+          <List chainId={chain.id} />
+          <Add chainId={chain.id} />
+        </>}
       </main>
     </div>
   );
