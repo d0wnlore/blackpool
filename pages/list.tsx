@@ -3,8 +3,8 @@ import { parseEther } from 'viem'
 import { useState } from 'react';
 
 const CONTRACT_ADDRESSES = {
-  534351: '0x57B1305227FD3c3c7DE018231Cbb323f3B1d6e4f',
-  5001: '0xF5c0b4cc4DdFa2c42DEf50F75B56a13CE3298687'
+  534351: '0x0E6B794a2a52cC242cB6741ecdF2F2d3DDfF8cf4',
+  5001: '0x7BBCFA69E1A4e380C932140834cb000801955dbb'
 }
 
 function List({chainId}) {

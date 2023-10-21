@@ -1,0 +1,17 @@
+type SiteAdded @entity(immutable: true) {
+  id: Bytes!
+  url: String! # string
+  owner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TipReceived @entity(immutable: true) {
+  id: Bytes!
+  siteIndex: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
