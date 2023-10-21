@@ -21,7 +21,20 @@ contract Blackpool {
         owner = msg.sender;
     }
 
+    function isValidDomain(string memory domain) public pure returns (bool) {
+        bytes memory b = bytes(domain);
+        if(b.length < 3) return false;
+        if(b[0] == '.' || b[b.length-1] == '.') return false;
+
+        for(uint i = 1; i < b.length - 1; i++) {
+            if(b[i] == '.') return true;
+        }
+
+        return false;
+    }
+
     function addSite(string calldata url) public {
+        require(isValidDomain(url), "Invalid domain");
         addrSites[msg.sender].push(Site(url, true, msg.sender));
         allSites[totalSitesCount] = Site(url, true, msg.sender);
         totalSitesCount++;
