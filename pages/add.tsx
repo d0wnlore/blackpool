@@ -3,7 +3,7 @@ import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 
 const CONTRACT_ADDRESSES = {
   534351: '0x57B1305227FD3c3c7DE018231Cbb323f3B1d6e4f',
-  5001: '0xD30e9367171CB05aC5E00ae195A015225F2848e1'
+  5001: '0xF5c0b4cc4DdFa2c42DEf50F75B56a13CE3298687'
 }
 
 function AddSite({chainId}) {

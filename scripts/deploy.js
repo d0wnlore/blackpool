@@ -12,7 +12,7 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
 
   const contract = await hre.ethers.deployContract("Blackpool", {
-    // gasLimit: "0x1000000",
+    // gasLimit: "0x1000000", // uncomment when deploying to Mantle
   });
 
   console.log("Token address:", await contract.getAddress());

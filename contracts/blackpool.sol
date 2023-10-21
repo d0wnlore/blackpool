@@ -22,7 +22,6 @@ contract Blackpool {
     }
 
     function addSite(string calldata url) public {
-        // Directly pushing the new site to the arrays
         addrSites[msg.sender].push(Site(url, true, msg.sender));
         allSites[totalSitesCount] = Site(url, true, msg.sender);
         totalSitesCount++;

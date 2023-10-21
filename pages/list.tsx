@@ -1,9 +1,10 @@
-import { useContractRead } from 'wagmi';
+import { useContractRead, useContractWrite } from 'wagmi';
+import { parseEther } from 'viem'
 import { useState } from 'react';
 
 const CONTRACT_ADDRESSES = {
   534351: '0x57B1305227FD3c3c7DE018231Cbb323f3B1d6e4f',
-  5001: '0xD30e9367171CB05aC5E00ae195A015225F2848e1'
+  5001: '0xF5c0b4cc4DdFa2c42DEf50F75B56a13CE3298687'
 }
 
 function List({chainId}) {
@@ -27,16 +28,33 @@ function List({chainId}) {
     functionName: 'getAllSites',
     onSettled(data, error) {
       setSiteList(data);
-      console.log('Settled', { data, error});
     }
+  })
+
+  const { data, isLoading, isSuccess, write } = useContractWrite({
+    address: CONTRACT_ADDRESSES[chainId] as `0x${string}`,
+    abi: [{
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "siteIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "tipSiteOwner",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }],
+    functionName: 'tipSiteOwner',
+    value: chainId === 534351 ? parseEther('0.001337') : parseEther('0.1337')
   })
 
   return (
     <div>
-      <p>{chainId}</p>
       <ul>
         {siteList.map((site, index) => (
-          <li key={index}>{site}</li>
+          <li key={index} onClick={() => write({args: [index]})}>{site}</li>
         ))}
       </ul>
     </div>
