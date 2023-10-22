@@ -1,11 +1,7 @@
 import { useContractRead, useContractWrite } from 'wagmi';
 import { parseEther } from 'viem'
 import { useState } from 'react';
-
-const CONTRACT_ADDRESSES = {
-  534351: '0x0E6B794a2a52cC242cB6741ecdF2F2d3DDfF8cf4',
-  5001: '0x7BBCFA69E1A4e380C932140834cb000801955dbb'
-}
+import CONTRACT_ADDRESSES from './contracts';
 
 function List({chainId}) {
   const [siteList, setSiteList] = useState([]);

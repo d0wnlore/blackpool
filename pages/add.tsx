@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useContractWrite, usePrepareContractWrite } from 'wagmi';
-
-const CONTRACT_ADDRESSES = {
-  534351: '0x0E6B794a2a52cC242cB6741ecdF2F2d3DDfF8cf4',
-  5001: '0x7BBCFA69E1A4e380C932140834cb000801955dbb'
-}
+import CONTRACT_ADDRESSES from './contracts';
+import styles from '../styles/Add.module.css';
 
 function AddSite({chainId}) {
   const [site, setSite] = useState('');
@@ -38,15 +35,19 @@ function AddSite({chainId}) {
         e.preventDefault();
         write?.();
       }}
+      className={styles.add}
     >
-      <label htmlFor="site">Suspicious Site URL</label>
-      <input
-        id="site"
-        onChange={(e) => setSite(e.target.value)}
-        placeholder="cutescam.uwu"
-        value={site}
-      />
-      <button disabled={!write}>Submit</button>
+      <label htmlFor="site">Submit a phishing website for eternal damnation…</label>
+      <fieldset className={styles.submitFieldset}>
+        <input
+          id="site"
+          onChange={(e) => setSite(e.target.value)}
+          placeholder="usdt.scamtuary.xyz"
+          value={site}
+          autoComplete="off"
+        />
+        <button disabled={!write}>Submit</button>
+      </fieldset>
     </form>
   );
 }
