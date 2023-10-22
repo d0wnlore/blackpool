@@ -6,7 +6,9 @@
 
 This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
 
-First, run the development server:
+First, copy and rename `.env.example` to `.env` and add your private key.
+
+Second, run the development server:
 
 ```bash
 npm run dev
