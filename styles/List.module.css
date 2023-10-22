@@ -23,4 +23,50 @@
 
 .listItem {
   margin-bottom: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.listItem:hover {
+  color: #F96041;
+  transition: color 0.2s ease-in;
+}
+
+.listItem::after {
+  content: "";
+  position: absolute;
+  background: #DD2B07;
+  color: #E5DFD0;
+  padding: 5px 8px;
+  border-radius: 2px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+  font-size: 1.1rem;
+  left: -10px;
+  transform: translateX(-100%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.listItem:hover::after {
+  content: "Tip the Reporter";
+  visibility: visible;
+  opacity: 1;
+}
+
+.tip {
+  margin-top: 0;
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+.dl {
+  font-size: 1.1rem;
+  color: #F96041;
+  text-decoration: underline;
+}
+
+.dl:hover {
+  text-decoration: none;;
 }

@@ -25,9 +25,6 @@ const Home: NextPage = () => {
           name="description"
         />
         <link href="/favicon.ico" rel="icon" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
 
       <header className={styles.header}>
@@ -41,7 +38,7 @@ const Home: NextPage = () => {
           <div className={styles.primer}>
             <p>Blackpool is a community-curated blocklist of phishing websites</p>
             <ul>
-              <li>Add to Blackpool’s eternal blocklist of websites to avoid</li>
+              <li>Inscribe malicious websites to Blackpool’s eternal blocklist</li>
               <li>Use Blackpool’s blocklist to protect yourself or your users</li>
               <li>Toss a coin to addresses that have contributed to Blackpool</li>
             </ul>

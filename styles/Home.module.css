@@ -57,6 +57,7 @@
   line-height: 1;
   font-size: 2.5rem;
   color: #F96041;
+  text-shadow: 0 0 10px rgba(221, 43, 7, 0.5);
 }
 
 .eternal {
@@ -72,6 +73,7 @@
   white-space: nowrap;
   transform: translateX(-50%);
   color: #E5DFD0;
+  text-shadow: none;;
 }
 
 .title,
