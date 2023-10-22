@@ -1,6 +1,6 @@
 # ⚫️ Blackpool
 
-> Onchain blocklist of phishing websites, contributed by the Ethereum community and with tipping support.
+> Eternal (onchain) damnation of crypto phishing websites. Blackpool is an open and decentralized blocklist of phishing websites, maintained and supported by the Ethereum community.
 
 ## Getting Started
 
