@@ -1,0 +1,26 @@
+.listContainer {
+  margin-left: 5rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.4rem;
+}
+
+.listContainer .title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  justify-self: flex-start;
+  font-weight: 400;
+}
+
+.title span {
+  color: #F96041;
+  font-weight: bold;
+}
+
+.listItem {
+  margin-bottom: 1rem;
+}

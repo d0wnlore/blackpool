@@ -46,12 +46,11 @@ const Home: NextPage = () => {
               <li>Toss a coin to addresses that have contributed to Blackpool</li>
             </ul>
             {chain && <div className={styles.add}>
-            <Add chainId={chain.id} />
-          </div>}
+              <Add chainId={chain.id} />
+            </div>}
           </div>
-          {chain && <>
-          <List chainId={chain.id} />
-        </>}
+          {chain ?
+          <List chainId={chain.id} /> : <div className={styles.connect}>Connect Wallet to observe The Eternal<br/>Blocklist and submit websites for damnation</div>}
         </div>
       </main>
     </div>

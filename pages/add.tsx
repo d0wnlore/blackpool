@@ -42,7 +42,7 @@ function AddSite({chainId}) {
         <input
           id="site"
           onChange={(e) => setSite(e.target.value)}
-          placeholder="usdt.scamtuary.xyz"
+          placeholder="usdt.ethereum-support.xyz"
           value={site}
           autoComplete="off"
         />

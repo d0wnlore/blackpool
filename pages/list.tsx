@@ -2,6 +2,7 @@ import { useContractRead, useContractWrite } from 'wagmi';
 import { parseEther } from 'viem'
 import { useState } from 'react';
 import CONTRACT_ADDRESSES from './contracts';
+import styles from '../styles/List.module.css';
 
 function List({chainId}) {
   const [siteList, setSiteList] = useState([]);
@@ -47,10 +48,11 @@ function List({chainId}) {
   })
 
   return (
-    <div>
-      <ul>
+    <div className={styles.listContainer}>
+      <h2 className={styles.title}><span>The Eternal Blocklist</span> on {chainId === 534351 ? 'Scroll' : 'Mantle'}</h2>
+      <ul className={styles.list}>
         {siteList.map((site, index) => (
-          <li key={index} onClick={() => write({args: [index]})}>{site}</li>
+          <li key={index} onClick={() => write({args: [index]})} className={styles.listItem}>{site}</li>
         ))}
       </ul>
     </div>

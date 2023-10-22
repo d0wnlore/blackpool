@@ -13,9 +13,16 @@
 
 .front {
   display: flex;
-  justify-content: space-between;
   width: 100%;
   max-width: 1080px;
+}
+
+.connect {
+  margin-left: 5rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  color: #F96041;
 }
 
 .footer {
@@ -131,6 +138,11 @@
 
 .primer {
   font-size: 1.4rem;
+}
+
+.primer p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .primer ul {
